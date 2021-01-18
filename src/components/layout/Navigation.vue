@@ -2,13 +2,17 @@
 <div>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <div class="navbar">
+      <div class="navbar">
+        
+        <div class="add-movie" id="myMovie">
+           <a href="/add"><i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
         <a href="/trending">Trending</a>
         <a href="/topRated">Top Rated</a>
         <a href="/newArrivals">New Arrivals</a>
         <div class="search-container">
             <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
+                <input type="text" placeholder="Search..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
@@ -19,13 +23,13 @@
         <div class="dropdown-content" id="myDropdown">
             <a href="/drama">Drama</a>
             <a href="/action">Action</a>
-            <a href="/horror">Horror</a>
+            <a href="/adventure">Adventure</a>
             <a href="/comedy">Comedy</a>
+            <a href="/thriller">Thriller</a>
         </div>
-        
-    </div> 
+      </div> 
+    </div>
   </div>
-</div>
 
 </template>
 
@@ -114,6 +118,10 @@
 
 .navbar .search-container button:hover {
   background: #ccc;
+}
+
+.add-movie{
+  float: left;
 }
 
 </style>

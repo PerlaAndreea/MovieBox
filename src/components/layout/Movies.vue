@@ -1,72 +1,11 @@
 <template>
 <div class="row">
-  <div class="column">
+  <div class="column" v-for="movie in listOfDefaultMovies" :key=movie.id>
     <div class="movie zoom">
-            <img src="https://www.filmjabber.com/movie-poster-thumbs/free-guy-movie-poster-6492.jpg">
-            <h1>Free Guy</h1>
-            <h2>Action, Adventure, Comedy</h2>
-       </div>
-   <div class="movie zoom">
-            <img src="https://img.moviepostershop.com/the-witcher-movie-poster-2020-1000779909.jpg">
-            <h1>the witcher</h1>
-            <h2>Action, Adventure, Fantasy</h2>
-       </div>
-    <div class="movie zoom">
-            <img  src="https://www.mountaintimes.info/wp-content/uploads/2020/02/Movie-Diary-_-Fantasy-Island-690x1024.jpg">
-            <h1>Fantasy island</h1>
-            <h2>Action, Adventure, Fantasy</h2>
-       </div>
-  </div>
-  <div class="column">
-   <div class="movie zoom">
-            <img  src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg">
-            <h1>black panther</h1>
-            <h2>Action, Adventure, Sci-Fi</h2>
-       </div>
-   <div class="movie zoom">
-            <img  src="https://images.moviepostershop.com/replicas-movie-poster-1000778791.jpg">
-            <h1>replicas</h1>
-            <h2>Drama, Sci-Fi, Thriller</h2>
-       </div>
-    <div class="movie zoom">
-            <img  src="https://images-na.ssl-images-amazon.com/images/I/91WNnQZdybL._AC_SL1500_.jpg">
-            <h1>aladdin</h1>
-            <h2>Adventure, Family, Fantasy</h2>
-       </div>
-  </div>
-  <div class="column">
-    <div class="movie zoom">
-            <img  src="https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88997/93196/Avengers-Endgame-Final-Style-Poster-buy-original-movie-posters-at-starstills__42370.1563973516.jpg?c=2">
-            <h1>Avengers</h1>
-            <h2>Action, Adventure, Drama</h2>
-       </div>
-    <div class="movie zoom">
-            <img  src="https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/89058/93685/Joker-2019-Final-Style-steps-Poster-buy-original-movie-posters-at-starstills__62518.1572351179.jpg?c=2?imbypass=on">
-            <h1>Joker</h1>
-            <h2>Crime, Drama, Thriller</h2>
-       </div>
-   <div class="movie zoom">
-            <img  src="https://www.indiewire.com/wp-content/uploads/2019/12/us-1.jpg?w=758">
-          <h1>Us</h1>
-            <h2>Horror, Mystery, Thriller</h2>
-       </div>
-  </div>
-   <div class="column">
-       <div class="movie zoom">
-            <img  src="https://lumiere-a.akamaihd.net/v1/images/20cs_xmen_dark_phoenix_poster-keyart_2de4ace2.jpeg?region=0,0,1400,2100">
-            <h1>x-men</h1>
-            <h2>action</h2>
-       </div>
-    <div class="movie zoom">
-            <img  src="https://lumiere-a.akamaihd.net/v1/images/20cs_xmen_dark_phoenix_poster-keyart_2de4ace2.jpeg?region=0,0,1400,2100">
-            <h1>Us</h1>
-            <h2>Horror, Mystery, Thriller</h2>
-       </div>
-    <div class="movie zoom">
-            <img  src="https://lumiere-a.akamaihd.net/v1/images/20cs_xmen_dark_phoenix_poster-keyart_2de4ace2.jpeg?region=0,0,1400,2100">
-            <h1>x-men</h1>
-            <h2>action</h2>
-       </div>
+        <img :src="movie.posterurl" alt="Image">
+        <h1>{{movie.name}}</h1>
+        <h2>{{movie.genre}}</h2>
+    </div>
   </div>
 </div>
 </template>
@@ -90,6 +29,8 @@
   flex: 25%;
   max-width: 25%;
   padding: 50px 50px;
+  float:left;
+  margin:0;
 }
 
 .column img {
@@ -131,3 +72,63 @@ h2{
 
 
 </style>
+
+<script>
+
+export default {
+  data(){
+       return{
+         listOfDefaultMovies:[ {
+    id: 2,
+    name: 'The Witcher',
+    genre: 'Action, Adventure, Fantasy',
+    posterurl: 'https://m.media-amazon.com/images/M/MV5BOGE4MmVjMDgtMzIzYy00NjEwLWJlODMtMDI1MGY2ZDlhMzE2XkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_.jpg'
+  },{
+    id: 3,
+    name: 'Fantasy island',
+    genre: 'Action, Adventure, Fantasy',
+    posterurl: 'https://www.mountaintimes.info/wp-content/uploads/2020/02/Movie-Diary-_-Fantasy-Island-690x1024.jpg'
+  },{
+    id: 4,
+    name: 'Black panther',
+    genre: 'Action, Adventure, Sci-Fi',
+    posterurl: 'https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg'
+  },{
+    id: 5,
+    name: 'Replicas',
+    genre: 'Drama, Sci-Fi, Thriller',
+    posterurl: 'https://images.moviepostershop.com/replicas-movie-poster-1000778791.jpg'
+  },{
+    id: 6,
+    name: 'Avengers',
+    genre: 'Action, Adventure, Drama',
+    posterurl: 'https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/88997/93196/Avengers-Endgame-Final-Style-Poster-buy-original-movie-posters-at-starstills__42370.1563973516.jpg?c=2'
+  },{
+    id: 7,
+    name: 'Joker',
+    genre: 'Crime, Drama, Thriller',
+    posterurl: 'https://cdn11.bigcommerce.com/s-ydriczk/images/stencil/1280x1280/products/89058/93685/Joker-2019-Final-Style-steps-Poster-buy-original-movie-posters-at-starstills__62518.1572351179.jpg?c=2?imbypass=on'
+  },{
+    id: 8,
+    name: 'Us',
+    genre: 'Horror, Mystery, Thriller',
+    posterurl: 'https://www.indiewire.com/wp-content/uploads/2019/12/us-1.jpg?w=758'
+  },{
+    id: 9,
+    name: 'aladdin',
+    genre: 'Adventure, Family, Fantasy',
+    posterurl: 'https://images-na.ssl-images-amazon.com/images/I/91WNnQZdybL._AC_SL1500_.jpg'
+  }]  
+       }
+  },
+    mounted() {
+    
+    localStorage.setItem("LIST_OF_DEFAULT_MOVIES", JSON.stringify(this.listOfDefaultMovies));
+    var movies = JSON.parse(localStorage.getItem("LIST_OF_DEFAULT_MOVIES"));
+    if (movies)
+        console.log(movies);
+}  
+}
+
+
+</script>

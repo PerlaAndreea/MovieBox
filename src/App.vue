@@ -1,9 +1,15 @@
 <template>
 <div>
+
    <the-header></the-header>
    <navigation></navigation>
-   <movies></movies>
+      <app-router v-slot="slotProps">
+    <transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </transition>
+  </app-router>
    <the-footer></the-footer>
+
    </div>
 </template>
 
@@ -12,13 +18,15 @@ import TheHeader from './components/layout/TheHeader.vue';
 import Navigation from './components/layout/Navigation.vue';
 import Movies from './components/layout/Movies.vue';
 import TheFooter from './components/layout/TheFooter.vue';
+import AppRouter from "./AppRouter";
 
 export default {
   components: {
     TheHeader,
     Navigation,
     Movies,
-    TheFooter
+    TheFooter,
+    AppRouter
   }  
 }
 </script>
@@ -37,5 +45,30 @@ html {
 
 body {
   margin: 0;
+}
+
+
+.route-enter-from {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.route-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.route-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.route-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.route-enter-to,
+.route-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
